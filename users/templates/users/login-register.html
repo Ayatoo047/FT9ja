@@ -1,0 +1,252 @@
+{% extends 'main.html' %}
+
+{% load static %}
+{% block content %}
+{% if page == 'login' %}
+
+<style>
+  .auth {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  background: transparent;
+  height: 99vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth::after {
+  z-index: -1;
+  opacity: 0.1;
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: url(../images/pattern.jpg);
+}
+
+.auth > .card {
+  padding: 3rem 4rem;
+  width: 95%;
+  max-width: 65rem;
+}
+
+@media screen and (min-width: 650px) {
+  .auth > .card {
+    padding: 5rem 8rem;
+    width: 95%;
+    max-width: 65rem;
+  }
+}
+
+.auth__header h3 {
+  color: var(--color-sub);
+  font-weight: 700;
+  margin-top: 1rem;
+}
+
+.auth__header p {
+  font-weight: 400;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+}
+
+.auth__form {
+  margin: 3rem 0;
+}
+
+.auth .auth__form label,
+.auth .auth__alternative p {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--color-sub-light);
+}
+
+.auth .auth__actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2.5rem 0;
+}
+.auth .auth__actions a {
+  text-decoration: underline;
+}
+
+.auth .auth__alternative a {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.hero-section__search > .form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.hero-section__search > .form label {
+  position: absolute;
+  left: -9999px;
+}
+
+.hero-section__search > .form input.input--text {
+  width: 50rem;
+}
+
+@media screen and (max-width: 700px) {
+  .hero-section__search > .form {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    align-items: stretch;
+  }
+
+  .hero-section__search > .form input.input--text,
+  .hero-section__search > .form input {
+    min-width: 100%;
+    width: 100%;
+  }
+}
+
+</style>
+
+<form action="{% url 'login' %}" method="POST">
+    {% csrf_token %}
+    <div class="auth">
+      <div class="card">
+        <div class="auth__header text-center">
+          <a href="/">
+            <img src="{% static 'images/icon.svg' %}" alt="icon" />
+          </a>
+          <h3>Account Login</h3>
+          <p>Hello Customer, Welcome Back!</p>
+        </div>
+
+        <form action="" class="form auth__form">
+          <!-- Input:Email -->
+          <div class="form__field">
+            <label for="formInput#text">Username: </label>
+            <input
+              class="input input--text"
+              id="formInput#text"
+              type="text"
+              name="username"
+              placeholder="Enter your username..."
+            />
+          </div>
+
+          <!-- Input:Password -->
+          <div class="form__field">
+            <label for="formInput#password">Password: </label>
+            <input
+              class="input input--password"
+              id="formInput#passowrd"
+              type="password"
+              name="password"
+              placeholder="••••••••"
+            />
+          </div>
+          <div class="auth__actions">
+            <input class="btn btn--sub btn--lg" type="submit" value="Log In" />
+            <a href="forgetpassword.html">Forget Password?</a>
+          </div>
+        </form>
+        <div class="auth__alternative">
+          <p>Don’t have an Account?</p>
+          <a href="{% url 'register' %}">Sign Up</a>
+        </div>
+      </div>
+    </div>
+
+</form>
+
+{% else %}
+
+
+    <form action="" method="POST" class="form auth__form">
+
+      {% csrf_token %}
+      <form action="{% url 'login' %}" method="POST">
+        <div class="auth">
+          <div class="card">
+            <div class="auth__header text-center">
+              <a href="/">
+                <img src="{% static 'images/icon.svg' %}" alt="icon" />
+              </a>
+              <h3>Account Register</h3>
+              <p>Hello Customer, Welcome!</p>
+            </div>
+    
+            <form action="" class="form auth__form">
+              <!-- Input:Email -->
+              <div class="form__field">
+                <label for="formInput#text">Username: </label>
+                <input
+                  class="input input--text"
+                  id="formInput#text"
+                  type="text"
+                  name="username"
+                  placeholder="Enter your username..."
+                />
+              </div>
+
+              <div class="form__field">
+                <label for="formInput#text">Email: </label>
+                <input
+                  class="input input--text"
+                  id="formInput#text"
+                  type="text"
+                  name="email"
+                  placeholder="Enter your Email..."
+                />
+              </div>
+    
+              <!-- Input:Password -->
+              <div class="form__field">
+                <label for="formInput#password">Password: </label>
+                <input
+                  class="input input--password"
+                  id="formInput#passowrd"
+                  type="password"
+                  name="password"
+                  placeholder="••••••••"
+                />
+              </div>
+
+              <div class="form__field">
+                <label for="formInput#password">Password: </label>
+                <input
+                  class="input input--password"
+                  id="formInput#passowrd"
+                  type="password"
+                  name="confirmpassword"
+                  placeholder="••••••••"
+                />
+              </div>
+
+              <div class="auth__actions">
+                <button onclick="window.location='/otpverification'"><input class="btn btn--sub btn--lg" type="submit" value="Register" /></button>
+                <a href="forgetpassword.html">Forget Password?</a>
+              </div>
+            </form>
+          </div>
+        </div>
+    
+    </form>
+    <div class="auth__alternative">
+      <p>Already have an Account?</p>
+      <a href="{% url 'login' %}">Log In</a>
+    </div>
+  </div>
+</div>
+
+
+
+{% endif %}
+
+
+{% endblock %}
