@@ -33,7 +33,7 @@
   // console.log(username)
   // Create a new WebSocket connection to the specified URL 
   // num += generateRandomNumber() 
-  const socket = new WebSocket(`ws://${window.location.host}/ws/${username}/`);
+  const socket = new WebSocket(`wss://${window.location.host}/ws/${username}/`);
   console.log(socket)
   /* Add a 'message' event listener to the socket to handle messages from the server */
   socket.onmessage = function(e) {
