@@ -1,5 +1,4 @@
 from channels.generic.websocket import AsyncWebsocketConsumer
-# from djangochannelsrestframework.observer import model_observer
 import json
 from channels.db import database_sync_to_async
 from .models import Statistic

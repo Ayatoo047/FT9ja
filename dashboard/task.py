@@ -1,9 +1,8 @@
-import time
 from FTMAPP.celery import celery
 from pytz import timezone
-from . models import Statistic, Stock
+from . models import Statistic
 import datetime
-import random
+
 
 @celery.task
 def tradeIt(value, request):
@@ -15,5 +14,5 @@ def tradeIt(value, request):
     if (now - Statistic.stat_time) >= datetime.timedelta(minutes = 1):
         Statistic.object.create(
             result = ((value /100) * request.user.balance),
-            stock = random(stock)
+            # stock = random(stock)
         )

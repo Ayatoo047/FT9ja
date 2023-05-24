@@ -421,8 +421,8 @@
                   <input
                     type="text"
                     class="form-control border-0 shadow-none"
-                    placeholder="Search{% static '"
-                    aria-label="Search{% static '"
+                    placeholder="Search"
+                    aria-label="Search"
                   />
                 </div>
               </div>
@@ -433,13 +433,13 @@
                 <li class="nav-item lh-1 me-3">
                   <a
                     class="github-button"
-                    id="username"
+                    id="username1"
                     href="3"
                     data-icon="octicon-star"
                     data-size="large"
                     data-show-count="true"
                     aria-label="Star themeselection/sneat-html-admin-template-free on GitHub"
-                    >{{profile.user}}</a
+                    >{{request.user}}</a
                   >
                 </li>
 
@@ -519,7 +519,7 @@
                     <div class="d-flex align-items-end row">
                       <div class="col-sm-7">
                         <div class="card-body">
-                          <h5 class="card-title text-primary">Welcome to the Dashboard of <span id='username1'>{{profile.user}}<span></h5>
+                          <h5 class="card-title text-primary">Welcome to the Dashboard of <span id='username'>{{profile.user}}<span></h5>
                         
 
                           <a href="javascript:;" class="btn btn-sm btn-outline-primary">View Badges</a>

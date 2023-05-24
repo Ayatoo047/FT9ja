@@ -7,7 +7,7 @@
       <div class="layout-container">
         <!-- Menu -->
 
-        <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+        {% comment %} <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
           <div class="app-brand demo">
             <a href="index.html" class="app-brand-link">
               <span class="app-brand-logo demo">
@@ -397,7 +397,7 @@
               </a>
             </li>
           </ul>
-        </aside>
+        </aside> {% endcomment %}
         <!-- / Menu -->
 
         <!-- Layout container -->
@@ -408,11 +408,11 @@
             class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
             id="layout-navbar"
           >
-            <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
+            {% comment %} <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
               <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
                 <i class="bx bx-menu bx-sm"></i>
               </a>
-            </div>
+            </div> {% endcomment %}
 
             <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
               <!-- Search -->
@@ -422,8 +422,8 @@
                   <input
                     type="text"
                     class="form-control border-0 shadow-none"
-                    placeholder="Search{% static '"
-                    aria-label="Search{% static '"
+                    placeholder="Search"
+                    aria-label="Search"
                   />
                 </div>
               </div>
@@ -440,7 +440,7 @@
                     data-size="large"
                     data-show-count="true"
                     aria-label="Star themeselection/sneat-html-admin-template-free on GitHub"
-                    >{{user.username}}</a
+                    >{{request.user.username}}</a
                   >
                 </li>
 
@@ -520,7 +520,7 @@
                     <div class="d-flex align-items-end row">
                       <div class="col-sm-7">
                         <div class="card-body">
-                          <h5 class="card-title text-primary">Congratulations <span id='username1'>{{user.username}}<span> ! 🎉</h5>
+                          <h5 class="card-title text-primary">Welcome Back <span id='username1'>{{user.username}}<span> ! 🎉</h5>
                           {% comment %} <p class="mb-4">
                             You have done <span class="fw-bold">72%</span> more sales today. Check your new badge in
                             your profile.
