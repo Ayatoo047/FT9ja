@@ -78,7 +78,6 @@
 
     <!-- Page JS -->
     {% if request.user.is_staff %}
-    <script src="{% static 'js/dashboard.js' %}"></script>
     <script src="{% static 'assets/js/dashboards-analytics.js' %}"></script>
     {% else %}
     <script src="{% static 'assets/js/dashboards-analytics.js' %}"></script>
