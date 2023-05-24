@@ -188,6 +188,7 @@ def registerUser(request):
 
         profile = Profile.objects.create(
             user = request.user,
+            balance = 1000,
         )
         # Otp.objects.create(
         #     otp = otp,

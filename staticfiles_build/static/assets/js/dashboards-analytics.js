@@ -93,7 +93,7 @@
       
       // Start the timer when the 'start-trade' button is clicked
       tradebtn.addEventListener('click', () => {
-        intervalId = setInterval(executeCode, 6000);
+        intervalId = setInterval(executeCode, 60000);
       });
       
       // Stop the timer when the 'stop-trade' button is clicked
